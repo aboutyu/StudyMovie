@@ -1,0 +1,148 @@
+
+
+<!-- 참고 : https://getbootstrap.com/docs/4.3/components/forms/ -->
+<form name="movie_modify" action="/movie/view/{{seq}}/" method="POST" onsubmit="return save_click();">
+  <table class="table">
+    
+    <tbody>
+      <tr>
+        <th scope="row">sequence</th>
+        <td><input class="form-control" type="text" placeholder="sequence" name="sequence" value="{{sequence}}"></td>
+      </tr>
+
+      <tr>
+        <th scope="row">ranking</th>
+        <td><input class="form-control" type="text" placeholder="ranking" name="ranking" value="{{ranking}}"></td>
+      </tr>
+
+      <tr>
+        <th scope="row">title</th>
+        <td><input class="form-control" type="text" placeholder="title" name="title" value="{{title}}"></td>
+      </tr>
+
+      <tr>
+        <th scope="row">opendate</th>
+        <td><input class="form-control" type="text" placeholder="opendate" name="opendate" value="{{opendate}}"></td>
+      </tr>
+
+      <tr>
+        <th scope="row">totsales</th>
+        <td><input class="form-control" type="text" placeholder="totsales" name="totsales" value="{{totsales}}"></td>
+      </tr>
+
+      <tr>
+        <th scope="row">totaudit</th>
+        <td><input class="form-control" type="text" placeholder="totaudit" name="totaudit" value="{{totaudit}}"></td>
+      </tr>
+
+      <tr>
+        <th scope="row">totScreen</th>
+        <td><input class="form-control" type="text" placeholder="totScreen" name="totScreen" value="{{totScreen}}"></td>
+      </tr>
+
+      <tr>
+        <th scope="row">thumbnail_image</th>
+        <td><input class="form-control" type="text" placeholder="thumbnail_image" name="thumbnail_image" value="{{thumbnail_image}}"></td>
+      </tr>
+
+      <tr>
+        <th scope="row">country</th>
+        <td><input class="form-control" type="text" placeholder="country" name="country" value="{{country}}"></td>
+      </tr>
+
+      <tr>
+        <th scope="row">genre</th>
+        <td><input class="form-control" type="text" placeholder="genre" name="genre" value="{{genre}}"></td>
+      </tr>
+
+      <tr>
+        <th scope="row">running</th>
+        <td><input class="form-control" type="text" placeholder="running" name="running" value="{{running}}"></td>
+      </tr>
+
+      <tr>
+        <th scope="row">rating</th>
+        <td><input class="form-control" type="text" placeholder="rating" name="rating" value="{{rating}}"></td>
+      </tr>
+
+      <tr>
+        <th scope="row">director</th>
+        <td><input class="form-control" type="text" placeholder="director" name="director" value="{{director}}"></td>
+      </tr>
+      <tr>
+        <td colspan="2" scope="row">
+          <!-- 참고: https://getbootstrap.com/docs/4.3/components/buttons/ -->
+          <button type="submit" class="btn btn-success">수정하기</button>
+          <button type="button" class="btn btn-info" onclick="list_click();">리스트</button>
+        </td>
+      </tr>
+    </tbody>
+    
+  </table>
+</form>
+
+<script language="javascript">
+// 수정하기 버튼 클릭
+function save_click() {
+  var doc = document.movie_modify;
+  if (!document.movie_modify.sequence.value) {
+    alert('sequence를 입력해주세요.');
+    return false;
+  }
+  if (!document.movie_modify.ranking.value) {
+    alert('ranking을 입력해주세요.');
+    return false;
+  }
+  if (!document.movie_modify.title.value) {
+    alert('title을 입력해주세요.');
+    return false;
+  }
+  if (!document.movie_modify.opendate.value) {
+    alert('opendate를 입력해주세요.');
+    return false;
+  }
+  if (!document.movie_modify.totsales.value) {
+    alert('totsales을 입력해주세요.');
+    return false;
+  }
+  if (!document.movie_modify.totaudit.value) {
+    alert('totaudit을 입력해주세요.');
+    return false;
+  }
+  if (!document.movie_modify.totScreen.value) {
+    alert('totScreen을 입력해주세요.');
+    return false;
+  }
+  if (!document.movie_modify.thumbnail_image.value) {
+    alert('thumbnail_image을 입력해주세요.');
+    return false;
+  }
+  if (!document.movie_modify.country.value) {
+    alert('country를 입력해주세요.');
+    return false;
+  }
+  if (!document.movie_modify.genre.value) {
+    alert('genre를 입력해주세요.');
+    return false;
+  }
+  if (!document.movie_modify.running.value) {
+    alert('running을 입력해주세요.');
+    return false;
+  }
+  if (!document.movie_modify.rating.value) {
+    alert('rating을 입력해주세요.');
+    return false;
+  }
+  if (!document.movie_modify.director.value) {
+    alert('director를 입력해주세요.');
+    return false;
+  }
+
+  return true;
+}
+
+// 리스트화면으로 이동 
+function list_click() {
+  document.location.href="/movie/list";
+}
+</script>

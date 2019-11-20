@@ -1,0 +1,1068 @@
+
+
+
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>KOBIS 영화관 입장권 통합 전산망</title>
+<link rel="stylesheet" type="text/css" href="/kobis/web/comm/mobile/commcss/comm.css" />
+<link rel="stylesheet" type="text/css" href="/kobis/web/comm/mobile/commcss/cont.css" />
+<link rel="stylesheet" type="text/css" href="/kobis/web/comm/mobile/commcss/main.css" />
+<script type="text/javascript" src="/kobis/web/comm/mobile/commjs/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="/kobis/web/comm/mobile/commjs/swipe.js"></script>
+<script type="text/javascript" src="/kobis/web/comm/mobile/commjs/kobis.js"></script>
+<script type="text/javascript" src="/kobis/web/comm/mobile/commjs/anypicker.js"></script>
+<script type="text/javascript" src="/kobis/web/comm/commjs/jquery.cookie.js"></script>
+</head>
+
+<body class="main" style="overflow-x:hidden;">
+<div id="wrap">
+<h2 class="blind">메인 페이지</h2>
+<div class="blind">
+	<h3>바로가기</h3>
+	<a href="#display">각 부문 1위</a>
+	<a href="#boxoffice">박스오피스</a>
+    <a href="#total">총 관객 수</a>
+    <a href="#realtime">실시간 예매율</a>
+    <a href="#notice">공지사항</a>
+</div>
+
+<!-- header & gnb -->
+<header>
+	<h1><a href="/kobis/mobile/main/main.do" class="block"><img src="/kobis/web/comm/mobile/images/comm/logo_h1.png" alt="KOBIS - 영화관 입장권 통합 전산망"></a></h1>
+    <a href="javascript:;" class="btn_side"><span class="hidetxt">전체 메뉴 보기</span></a>
+    <!--a href="#search" class="btn_sch"><span class="ico_comm">사이트 내 검색</span></a-->
+</header>
+<h2 class="blind">메뉴</h2>
+<nav id="gnb">
+	<div class="scring">
+    	<ul id="gnbTab" class="list_scr">
+        	<li><a href="/kobis/mobile/main/findDailyBoxOfficeList.do" data-menu="sub_boxs">박스오피스</a></li>
+        	<li><a href="/kobis/mobile/main/findRealTicketList.do">실시간예매율</a></li>
+        	<li><a href="/kobis/mobile/main/findDailySeatTicketList.do" data-menu="sub_seat">좌석점유율</a></li>
+        	<li><a href="/kobis/mobile/mast/mvie/searchMovieList.do" data-menu="sub_info">영화정보검색</a></li>
+        	<li><a href="/kobis/mobile/mast/online/onlineDailyBoxRank.do" data-menu="sub_online">온라인상영관</a></li>   	
+        	<!-- 로그인 여부 확인 -->
+        	
+        	<li><a href="/kobis/mobile/comm/user/openLogin.do">회원통계</a></li>
+        	
+        </ul>
+    </div>
+    <div id="subMenu">
+    	<h3 class="blind">박스오피스 하위메뉴</h3>
+        <div id="sub_boxs" class="scring">
+        	<ul class="list_scr">
+                <li style="width: 33.3%;"><a href="/kobis/mobile/main/findDailyBoxOfficeList.do">일별 박스오피스</a></li>
+                <li style="width: 33.3%;"><a href="/kobis/mobile/main/findWeeklyBoxOfficeList.do?sWeekGb=0">주간 박스오피스</a></li>
+                <li style="width: 33.3%;"><a href="/kobis/mobile/main/findWeeklyBoxOfficeList.do?sWeekGb=1">주말 박스오피스</a></li>
+            </ul>
+        </div>
+        <div id="sub_seat" class="scring">
+        	<ul class="list_scr">
+                <li style="width: 33.3%;"><a href="/kobis/mobile/main/findDailySeatTicketList.do">일별 좌석점유율</a></li>
+				<li style="width: 33.3%;"><a href="/kobis/mobile/main/findWeeklySeatTicketList.do?weekGb=0">주간 좌석점유율</a></li>
+				<li style="width: 33.3%;"><a href="/kobis/mobile/main/findWeeklySeatTicketList.do?weekGb=1">주말 좌석점유율</a></li>
+            </ul>
+        </div>
+        <div id="sub_info" class="scring">
+        	<ul class="list_scr">
+                <li style="width: 33.3%;"><a href="/kobis/mobile/mast/mvie/searchMovieList.do">영화</a></li>
+                <li style="width: 33.3%;"><a href="/kobis/mobile/mast/peop/searchPeopleList.do">영화인</a></li>
+                <li style="width: 33.3%;"><a href="/kobis/mobile/mast/comp/searchCompanyList.do">영화사</a></li>
+            </ul>
+        </div>    
+        <div id="sub_online" class="scring">
+        	<ul class="list_scr" style="width:130%; overflow: hidden;">
+                <li style="width: 17%;"><a href="/kobis/mobile/mast/online/onlineDailyBoxRank.do">박스오피스</a></li>
+                <li style="width: 17%;"><a href="/kobis/mobile/mast/online/onlineDailyStat.do">산업통계</a></li>                
+                <li style="width: 23%;"><a href="/kobis/mobile/mast/online/onlineMovieList.do">전체작품 정보</a></li>
+                <li style="width: 23%;"><a href="/kobis/mobile/mast/online/onlineNewMovieList.do">최신상영작 정보</a></li>
+                <li style="width: 20%;"><a href="/kobis/mobile/mast/online/onlineCompList.do">온라인상영관</a></li>
+            </ul>           
+        </div>
+        <div id="sub_stats" class="scring">
+        	<ul class="list_scr">
+        		<!--로그인 여부 확인-->
+        		
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- //header & gnb -->
+
+<!-- side -->
+<h2 class="blind">메뉴 펼쳐보기</h2>
+<div id="side">
+	<div class="dimm"></div>
+    <div class="wrapper">
+        <div class="hd_side">        	
+            <a href="/kobis/mobile/main/main.do" class="link_home"><img src="/kobis/web/comm/mobile/images/comm/logo_gnb.png" alt="홈으로"></a>
+            
+            <div class="user"><strong class="nonmember">비회원입니다.</strong></div>
+            <a href="/kobis/mobile/comm/user/openLogin.do" class="btn_login">로그인</a>
+                        
+        </div>
+        <ul class="list_menu">
+            <li class="item_menu"><a href="/kobis/mobile/comm/ntfy/findCustomerNotifyList.do">공지사항</a></li>
+            <li class="item_menu"><a href="javascript:;">박스오피스</a>
+                <ul class="depth2">
+                    <li><a href="/kobis/mobile/main/findDailyBoxOfficeList.do">- 일별 박스오피스</a></li>
+                    <li><a href="/kobis/mobile/main/findWeeklyBoxOfficeList.do?sWeekGb=0">- 주간 박스오피스</a></li>
+                    <li><a href="/kobis/mobile/main/findWeeklyBoxOfficeList.do?sWeekGb=1">- 주말 박스오피스</a></li>
+                </ul>
+            </li>       
+            <li class="item_menu"><a href="/kobis/mobile/main/findRealTicketList.do">실시간 예매율</a></li>
+            <li class="item_menu">
+                <a href="javascript:;">좌석 점유율</a>
+                <ul class="depth2">
+                    <li><a href="/kobis/mobile/main/findDailySeatTicketList.do">- 일별 좌석점유율</a></li>
+                    <li><a href="/kobis/mobile/main/findWeeklySeatTicketList.do?weekGb=0">- 주간 좌석점유율</a></li>
+                    <li><a href="/kobis/mobile/main/findWeeklySeatTicketList.do?weekGb=1">- 주말 좌석점유율</a></li>
+                </ul>
+            </li>       
+            <li class="item_menu"><a href="javascript:;">영화정보 검색</a>
+                <ul class="depth2">
+                    <li><a href="/kobis/mobile/mast/mvie/searchMovieList.do">- 영화</a></li>
+                    <li><a href="/kobis/mobile/mast/peop/searchPeopleList.do">- 영화인</a></li>
+                    <li><a href="/kobis/mobile/mast/comp/searchCompanyList.do">- 영화사</a></li>
+                </ul>
+            </li>
+            <li class="item_menu"><a href="javascript:;">온라인상영관</a>
+                <ul class="depth2">
+                	<li><a href="/kobis/mobile/mast/online/onlineDailyBoxRank.do">- 일간 이용순위</a></li>
+                	<li><a href="/kobis/mobile/mast/online/onlineWeeklyBoxRank.do">- 주간 이용순위</a></li>
+                	<li><a href="/kobis/mobile/mast/online/onlineMovieList.do">- 전체작품 정보</a></li>
+                	<li><a href="/kobis/mobile/mast/online/onlineNewMovieList.do">- 최신상영작 정보</a></li>
+                	<li><a href="/kobis/mobile/mast/online/onlineDailyStat.do">- 일간 산업통계</a></li>
+                	<li><a href="/kobis/mobile/mast/online/onlineWeeklyStat.do">- 주간 산업통계</a></li>
+                	<li><a href="/kobis/mobile/mast/online/onlineCompList.do">- 온라인상영관</a></li>                	                	                   
+                </ul>
+            </li>
+            <li class="item_menu">
+            	<!--로그인 여부 확인-->
+            	
+				<a href="/kobis/mobile/comm/user/openLogin.do">회원통계</a>
+				                
+            </li>       
+        </ul>
+	</div>
+</div>
+<!-- //side -->
+
+<!-- CSRF -->
+<input type="hidden" name="CSRFToken" value="DyLHTFhMjXBYjhOEZroRGN1Uju0zw6TrdCoore75CyQ" />
+
+
+<script type="text/javascript">
+
+$(document).ready(function(e) {	
+	//스크롤 우측으로 이동 
+	$(".scring").scrollLeft(($(".list_scr").width()-$(".scring").width()));
+});
+
+</script>
+
+<div id="contents">
+    <h3 class="title tit_dot">투사부일체&nbsp;(My Boss, My Teacher)</h3>
+	<div class="wrap_cont details">
+        <div class="info_basic">        	        		
+       		
+				
+					<a href="/upload/up_img/cleansing/x00/00/88/mov_20050363_38608.jpg" target="_blank" >
+					<div class="thumb">
+	               		<img src="/upload/up_img/cleansing/x00/00/88/thumb_x192/thn_mov_20050363_38608.jpg" alt="21_p1.jpg" onerror="fn_replaceBlankImg(this, '192');" />						
+					</div>
+					</a>
+					
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+			        	
+            <div class="desc">
+            	<dl class="dl_info">
+                	<dt>개봉일자</dt>
+                    <dd>
+                    	
+                    		
+		                    	
+		                    		
+		                    		
+		                    			2006-01-19
+		                    		
+		                    	
+		                    
+		                    
+						
+                    </dd>
+                	<dt>제작국가</dt>
+                    <dd>
+                    	
+                    		
+		                    	
+		                     	 	한국
+		                     	
+	                     	
+	                     	
+	                     
+                    </dd>
+                	<dt>장르</dt>
+                    <dd>
+                    	
+                    		
+		                    	
+									코미디
+								
+	                     	
+	                     	
+	                     
+                    </dd>
+                	<dt>상영타입</dt>
+                    <dd>
+                    	
+                    		
+		                    	
+                    				필름
+                    			
+	                     	
+	                     	
+	                                        	
+                    </dd>
+                	<dt>상영시간</dt>
+                    <dd>125분 0초</dd>
+                	<dt>관람등급</dt>
+                    <dd>15세관람가</dd>
+                </dl>
+            </div>
+        </div>        
+        
+        <div class="info">
+        	<strong class="tit_line">감독/출연</strong>
+            <dl class="dl_info">
+            	<dt>감독</dt>
+                <dd>
+                		
+                	                   				                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   			                   		
+		                   		
+			                   	<a href="/kobis/mobile/mast/peop/searchPeopleDtl.do?peopleCd=10003972">김동원</a>
+			                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+                   	
+                   	                   	
+                </dd>
+                <dt>출연</dt>
+                <dd>
+                	
+	                					
+							
+								<a href="/kobis/mobile/mast/peop/searchPeopleDtl.do?peopleCd=10062240">정준호,</a>
+							
+								<a href="/kobis/mobile/mast/peop/searchPeopleDtl.do?peopleCd=10062050">정웅인,</a>
+							
+								<a href="/kobis/mobile/mast/peop/searchPeopleDtl.do?peopleCd=10004437">김상중,</a>
+							
+								<a href="/kobis/mobile/mast/peop/searchPeopleDtl.do?peopleCd=10005374">김응수,</a>
+							
+								<a href="/kobis/mobile/mast/peop/searchPeopleDtl.do?peopleCd=10058616">임성민(뉴스 아나운서),</a>
+							
+								<a href="/kobis/mobile/mast/peop/searchPeopleDtl.do?peopleCd=20110884">박용식(교장 역),</a>
+							
+								<a href="/kobis/mobile/mast/peop/searchPeopleDtl.do?peopleCd=10072586">최윤영 (최나영),</a>
+							
+								<a href="/kobis/mobile/mast/peop/searchPeopleDtl.do?peopleCd=20132478">박은비(3학년 8반 학생들 ),</a>
+							
+								<a href="/kobis/mobile/mast/peop/searchPeopleDtl.do?peopleCd=10007427">나현주,</a>
+							
+								<a href="/kobis/mobile/mast/peop/searchPeopleDtl.do?peopleCd=20138644">김동성(3학년 8반 학생들),</a>
+							
+								<a href="/kobis/mobile/mast/peop/searchPeopleDtl.do?peopleCd=20148071">고은영(3학년 8반 학생들),</a>
+							
+								<a href="/kobis/mobile/mast/peop/searchPeopleDtl.do?peopleCd=20112208">이배훈(홍콩공안2),</a>
+							
+								<a href="/kobis/mobile/mast/peop/searchPeopleDtl.do?peopleCd=20151002">박기연(3학년 8반 학생들 ),</a>
+							
+								<a href="/kobis/mobile/mast/peop/searchPeopleDtl.do?peopleCd=20151363">김성근(핫도그건달),</a>
+							
+								<a href="/kobis/mobile/mast/peop/searchPeopleDtl.do?peopleCd=20152069">유인나(3학년 8반 학생들 ),</a>
+							
+								<a href="/kobis/mobile/mast/peop/searchPeopleDtl.do?peopleCd=20153461">이희석(희석),</a>
+							
+								<a href="/kobis/mobile/mast/peop/searchPeopleDtl.do?peopleCd=20154012">일호(최명식),</a>
+							
+								<a href="/kobis/mobile/mast/peop/searchPeopleDtl.do?peopleCd=10072323">최선영(팬시점 점원 ),</a>
+							
+								<a href="/kobis/mobile/mast/peop/searchPeopleDtl.do?peopleCd=20154593">박민애(3학년 8반 학생들 ),</a>
+							
+								<a href="/kobis/mobile/mast/peop/searchPeopleDtl.do?peopleCd=10061652">정다은,</a>
+							
+								<a href="/kobis/mobile/mast/peop/searchPeopleDtl.do?peopleCd=20157712">최영미(3학년 8반 학생들 ),</a>
+							
+								<a href="/kobis/mobile/mast/peop/searchPeopleDtl.do?peopleCd=20157807">이송(3학년 8반 학생들),</a>
+							
+								<a href="/kobis/mobile/mast/peop/searchPeopleDtl.do?peopleCd=20158867">최영진(중간보스2 ),</a>
+							
+								<a href="/kobis/mobile/mast/peop/searchPeopleDtl.do?peopleCd=10072598">최융환(삼합회 보스 ),</a>
+							
+								<a href="/kobis/mobile/mast/peop/searchPeopleDtl.do?peopleCd=20163881">김지헌(달봉),</a>
+							
+								<a href="/kobis/mobile/mast/peop/searchPeopleDtl.do?peopleCd=20164668">이혁수(3학년 8반 학생들 ),</a>
+							
+								<a href="/kobis/mobile/mast/peop/searchPeopleDtl.do?peopleCd=10072997">춘자(우정출연-대가리의 부인 춘자),</a>
+							
+								<a href="/kobis/mobile/mast/peop/searchPeopleDtl.do?peopleCd=10054939">이기열(교감),</a>
+							
+								<a href="/kobis/mobile/mast/peop/searchPeopleDtl.do?peopleCd=10000693">강성필(양동팔),</a>
+							
+								<a href="/kobis/mobile/mast/peop/searchPeopleDtl.do?peopleCd=20236946">장준녕(삼합회 1),</a>
+							
+								<a href="/kobis/mobile/mast/peop/searchPeopleDtl.do?peopleCd=10086728">하동훈(진수)</a>
+							
+						
+						
+					
+                </dd>
+            </dl>
+        </div>
+        
+              
+       	
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+										
+			
+			
+			
+										
+			
+			
+			
+										
+			
+			
+			
+										
+			
+			
+			
+										
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		
+         
+        <div class="info">
+        	<strong class="tit_line">스틸컷</strong>
+        	
+        		
+					<ul class="list_cut">
+						
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+								
+				                <li><a href="/upload/up_img/cleansing/63/mov_20050363_4.jpg" target="_blank" ><span class="thumb"><img src="/upload/up_img/cleansing/63/thumb_x132/thn_mov_20050363_4.jpg" alt="116184235320345889_투사부2.jpg" onerror="fn_replaceBlankImg(this, '132');" /></span></a></li>						
+							
+							
+							
+								
+				                <li><a href="/upload/up_img/cleansing/63/mov_20050363_5.jpg" target="_blank" ><span class="thumb"><img src="/upload/up_img/cleansing/63/thumb_x132/thn_mov_20050363_5.jpg" alt="116184236053149933_투사부3.jpg" onerror="fn_replaceBlankImg(this, '132');" /></span></a></li>						
+							
+							
+							
+								
+				                <li><a href="/upload/up_img/cleansing/63/mov_20050363_7.jpg" target="_blank" ><span class="thumb"><img src="/upload/up_img/cleansing/63/thumb_x132/thn_mov_20050363_7.jpg" alt="116287673339045889_22.jpg" onerror="fn_replaceBlankImg(this, '132');" /></span></a></li>						
+							
+							
+							
+								
+				                <li><a href="/upload/up_img/cleansing/63/mov_20050363_8.jpg" target="_blank" ><span class="thumb"><img src="/upload/up_img/cleansing/63/thumb_x132/thn_mov_20050363_8.jpg" alt="116287673907849933_3.jpg" onerror="fn_replaceBlankImg(this, '132');" /></span></a></li>						
+							
+							
+							
+								
+				                <li><a href="/upload/up_img/cleansing/63/mov_20050363_9.jpg" target="_blank" ><span class="thumb"><img src="/upload/up_img/cleansing/63/thumb_x132/thn_mov_20050363_9.jpg" alt="116676164550086428_D1450-54.jpg" onerror="fn_replaceBlankImg(this, '132');" /></span></a></li>						
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						
+		            </ul>
+				
+        		        	
+        	        	
+        </div>
+		
+		<div class="info">
+        	<strong class="tit_line">시놉시스</strong>	
+			<dl class="dl_info">
+				
+	            	<dd>5년 전 계두식. 교생 되어 돌아오다! 5년 전, 조폭의 신분으로 고등학교에 입학. 학교를 발칵 뒤집어 놓은 계두식이, 이번에는 사범 대학교 윤리 교생으로 돌아온다. 그는 졸업생들을 위한 현장실습을 "장기수들이 출소하기 전에 쌓는 사회경험"으로 가볍게 판단, 교생 실습을 위해 학교로 나서게 된 것. 실습 첫날부터 개구멍으로 출근한 그가, "교생도 선생은 선생!!" 이라고 목에 강하게 힘을 주며, "윤리와 사상은 나만의 윤리관으로 가르치겠다!!"라는 포부를 밝혔다. 그들이 변했다!! 한편, 라스베가스를 주름잡던 카사노바 출신 김상두(가짜 대학생)가 두식의 SOS요청에 발목 잡힌 것으로 밝혀졌다. 5년 전까지만 해도 "라스베가스"를 주름잡던 그가, 두식에게 소개 받은 여선생으로 인해 완전히 망가진 것. 게다가 "여선생 꼬시기" 전담으로, 사생활까지 포기해야만 하는 상태이다. 또한, 무식의 절정으로 알려진 대가리는 이미 5년 전부터, 선수출신 마누라와 자신을 똑 닮은 자식 꼴통 때문에 하루하루를 고달프게 보내고 있다고 한다. 어디선가 대가리에게 무슨 일이 생기면 반드시 그의 아내 춘자 귀에 들어간다는 말이 있을 정도로 빡센 삶의 연속이라는 것.  두식 형님 내조하랴, 나름대로 연애하랴, 몸이 열 개로 나눠도 모자를 그들이 이번에는 어떤 식으로 두식 형님을 보필하게 될지!! 5년 전보다 더욱 강해진 그들의 무식함에 귀추가 주목된다. 두목과 스승과 아버지는 아직도, 하나!! 두식의 학교 생활을 막는 장애물은 비단, 영어 선생이나 철모르고 대드는 학생들만은 아니다. 자신의 최고 보스도 학교에서만큼은 장애물이 되곤 한다. 상두에게 여자 보기를 돌같이 여기라고 말하는 것 보다, 대가리에게 상대방을 대화로 설득시키도록 지시하는 것 보다, 더 어려운 것은 제자가 된 두목(상중)을 공정한 마음으로 다스려야 한다는 것!!  "아직도!! 두목과 스승과 아버지는 하나다" 라며 자신 있게 외쳐대는 두식은 과연 이런 난관 중에 난관을 어떻게 헤쳐 나가며, 안전하게 학교 생활을 마무리 지을 것인가. 우리는 그것이 알고 싶다!!</dd>
+	            	
+	            				
+			</dl>
+		</div>		
+
+		<div class="info">
+       	<strong class="tit_line">영화사</strong>
+           <dl class="dl_info">
+           
+           		
+           			
+		           		
+		           			<dt>제작사</dt>
+		           			
+		           			<dd>
+		           		           		
+		           		
+		           		<a href="/kobis/mobile/mast/comp/searchCompanyDtl.do?companyCd=20100356">(주)시네마제니스  (Cinema Zenith Entertainment)</a>            		
+		           		
+		           		
+						
+						</dd>
+						
+           			
+		           		
+		           			<dt>배급사</dt>
+		           			
+		           			<dd>
+		           		           		
+		           		
+		           		<a href="/kobis/mobile/mast/comp/searchCompanyDtl.do?companyCd=20100109">씨제이엔터테인먼트 (CJ Entertainment)</a>            		
+		           		
+		           		
+						
+						</dd>
+						
+           			
+		           		
+		           			<dt>해외세일즈사</dt>
+		           			
+		           			<dd>
+		           		           		
+		           		
+		           		<a href="/kobis/mobile/mast/comp/searchCompanyDtl.do?companyCd=20100109">씨제이엔터테인먼트 (CJ Entertainment)</a>            		
+		           		
+		           		
+						
+						</dd>
+						
+           			
+		           		
+		           			<dt>제작서비스-세트</dt>
+		           			
+		           			<dd>
+		           		           		
+		           		
+		           		<a href="/kobis/mobile/mast/comp/searchCompanyDtl.do?companyCd=20110446">(사)부산영상위원회 (Busan Film Commission)</a>            		
+		           		
+		           		
+						
+           			
+           		
+           		
+           	
+           </dl>
+       	</div>
+       	
+        <div class="wrap_more">			
+        	<button type="button" class="list" onClick="history.back();">목록<span class="ico_comm ico_back"></button></button>
+        	
+		</div>
+    </div>
+</div>
+
+
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="/kobis/web/comm/commjs/gtag.js?id=UA-127072686-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-127072686-1');
+</script>
+		              	
+
+<!-- AceCounter Mobile WebSite Gathering Script V.7.5.20170208 -->
+<script language='javascript'>
+	var _AceGID=(function(){var Inf=['kobis.or.kr','m.kobis.or.kr,www.kobis.or.kr,kobis.or.kr','AZ3A54623','AM','0','NaPm,Ncisy','ALL','0']; var _CI=(!_AceGID)?[]:_AceGID.val;var _N=0;if(_CI.join('.').indexOf(Inf[3])<0){ _CI.push(Inf);  _N=_CI.length; } return {o: _N,val:_CI}; })();
+	var _AceCounter=(function(){var G=_AceGID;var _sc=document.createElement('script');var _sm=document.getElementsByTagName('script')[0];if(G.o!=0){var _A=G.val[G.o-1];var _G=(_A[0]).substr(0,_A[0].indexOf('.'));var _C=(_A[7]!='0')?(_A[2]):_A[3];var _U=(_A[5]).replace(/\,/g,'_');_sc.src=(location.protocol.indexOf('http')==0?location.protocol:'http:')+'//cr.acecounter.com/Mobile/AceCounter_'+_C+'.js?gc='+_A[2]+'&py='+_A[1]+'&up='+_U+'&rd='+(new Date().getTime());_sm.parentNode.insertBefore(_sc,_sm);return _sc.src;}})();
+</script>
+<noscript><img src='//gmb.acecounter.com/mwg/?mid=AZ3A54623&tp=noscript&ce=0&' border='0' width='0' height='0' alt=''></noscript>
+<!-- AceCounter Mobile Gathering Script End -->
+
+<footer>
+	<ul class="list_link">
+    	
+           	
+				<li><a href="/kobis/mobile/comm/user/openLogin.do">로그인</a></li>
+            
+            
+        
+    	<li><a href="/kobis/business/main/main.do" target="_blank">PC버전</a></li>    	
+    </ul>
+    <a href="javascript:$('html, body').stop().animate({scrollTop:0});" class="btn_top">TOP</a>
+    <div class="info">
+    	<p class="address">(48058)부산광역시 해운대구 센텀중앙로 55(우동) 경남정보대 센텀산학캠퍼스 13층, 14층</p>
+        <span class="tel">TEL: 02-6261-6573</span>
+        <span class="fax">FAX: 02-2264-6726</span>
+        <span class="email">E-mail: kobis@kofic.or.kr</span>
+        <p class="copyright">Copyright (c) 2011. Korean Film Council. All rights reserved.</p>
+    </div>
+</footer>
+</div>
+</body>
+</html>

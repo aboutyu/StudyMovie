@@ -1,0 +1,630 @@
+
+
+
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>KOBIS 영화관 입장권 통합 전산망</title>
+<link rel="stylesheet" type="text/css" href="/kobis/web/comm/mobile/commcss/comm.css" />
+<link rel="stylesheet" type="text/css" href="/kobis/web/comm/mobile/commcss/cont.css" />
+<link rel="stylesheet" type="text/css" href="/kobis/web/comm/mobile/commcss/main.css" />
+<script type="text/javascript" src="/kobis/web/comm/mobile/commjs/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="/kobis/web/comm/mobile/commjs/swipe.js"></script>
+<script type="text/javascript" src="/kobis/web/comm/mobile/commjs/kobis.js"></script>
+<script type="text/javascript" src="/kobis/web/comm/mobile/commjs/anypicker.js"></script>
+<script type="text/javascript" src="/kobis/web/comm/commjs/jquery.cookie.js"></script>
+</head>
+
+<body class="main" style="overflow-x:hidden;">
+<div id="wrap">
+<h2 class="blind">메인 페이지</h2>
+<div class="blind">
+	<h3>바로가기</h3>
+	<a href="#display">각 부문 1위</a>
+	<a href="#boxoffice">박스오피스</a>
+    <a href="#total">총 관객 수</a>
+    <a href="#realtime">실시간 예매율</a>
+    <a href="#notice">공지사항</a>
+</div>
+
+<!-- header & gnb -->
+<header>
+	<h1><a href="/kobis/mobile/main/main.do" class="block"><img src="/kobis/web/comm/mobile/images/comm/logo_h1.png" alt="KOBIS - 영화관 입장권 통합 전산망"></a></h1>
+    <a href="javascript:;" class="btn_side"><span class="hidetxt">전체 메뉴 보기</span></a>
+    <!--a href="#search" class="btn_sch"><span class="ico_comm">사이트 내 검색</span></a-->
+</header>
+<h2 class="blind">메뉴</h2>
+<nav id="gnb">
+	<div class="scring">
+    	<ul id="gnbTab" class="list_scr">
+        	<li><a href="/kobis/mobile/main/findDailyBoxOfficeList.do" data-menu="sub_boxs">박스오피스</a></li>
+        	<li><a href="/kobis/mobile/main/findRealTicketList.do">실시간예매율</a></li>
+        	<li><a href="/kobis/mobile/main/findDailySeatTicketList.do" data-menu="sub_seat">좌석점유율</a></li>
+        	<li><a href="/kobis/mobile/mast/mvie/searchMovieList.do" data-menu="sub_info">영화정보검색</a></li>
+        	<li><a href="/kobis/mobile/mast/online/onlineDailyBoxRank.do" data-menu="sub_online">온라인상영관</a></li>   	
+        	<!-- 로그인 여부 확인 -->
+        	
+        	<li><a href="/kobis/mobile/comm/user/openLogin.do">회원통계</a></li>
+        	
+        </ul>
+    </div>
+    <div id="subMenu">
+    	<h3 class="blind">박스오피스 하위메뉴</h3>
+        <div id="sub_boxs" class="scring">
+        	<ul class="list_scr">
+                <li style="width: 33.3%;"><a href="/kobis/mobile/main/findDailyBoxOfficeList.do">일별 박스오피스</a></li>
+                <li style="width: 33.3%;"><a href="/kobis/mobile/main/findWeeklyBoxOfficeList.do?sWeekGb=0">주간 박스오피스</a></li>
+                <li style="width: 33.3%;"><a href="/kobis/mobile/main/findWeeklyBoxOfficeList.do?sWeekGb=1">주말 박스오피스</a></li>
+            </ul>
+        </div>
+        <div id="sub_seat" class="scring">
+        	<ul class="list_scr">
+                <li style="width: 33.3%;"><a href="/kobis/mobile/main/findDailySeatTicketList.do">일별 좌석점유율</a></li>
+				<li style="width: 33.3%;"><a href="/kobis/mobile/main/findWeeklySeatTicketList.do?weekGb=0">주간 좌석점유율</a></li>
+				<li style="width: 33.3%;"><a href="/kobis/mobile/main/findWeeklySeatTicketList.do?weekGb=1">주말 좌석점유율</a></li>
+            </ul>
+        </div>
+        <div id="sub_info" class="scring">
+        	<ul class="list_scr">
+                <li style="width: 33.3%;"><a href="/kobis/mobile/mast/mvie/searchMovieList.do">영화</a></li>
+                <li style="width: 33.3%;"><a href="/kobis/mobile/mast/peop/searchPeopleList.do">영화인</a></li>
+                <li style="width: 33.3%;"><a href="/kobis/mobile/mast/comp/searchCompanyList.do">영화사</a></li>
+            </ul>
+        </div>    
+        <div id="sub_online" class="scring">
+        	<ul class="list_scr" style="width:130%; overflow: hidden;">
+                <li style="width: 17%;"><a href="/kobis/mobile/mast/online/onlineDailyBoxRank.do">박스오피스</a></li>
+                <li style="width: 17%;"><a href="/kobis/mobile/mast/online/onlineDailyStat.do">산업통계</a></li>                
+                <li style="width: 23%;"><a href="/kobis/mobile/mast/online/onlineMovieList.do">전체작품 정보</a></li>
+                <li style="width: 23%;"><a href="/kobis/mobile/mast/online/onlineNewMovieList.do">최신상영작 정보</a></li>
+                <li style="width: 20%;"><a href="/kobis/mobile/mast/online/onlineCompList.do">온라인상영관</a></li>
+            </ul>           
+        </div>
+        <div id="sub_stats" class="scring">
+        	<ul class="list_scr">
+        		<!--로그인 여부 확인-->
+        		
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- //header & gnb -->
+
+<!-- side -->
+<h2 class="blind">메뉴 펼쳐보기</h2>
+<div id="side">
+	<div class="dimm"></div>
+    <div class="wrapper">
+        <div class="hd_side">        	
+            <a href="/kobis/mobile/main/main.do" class="link_home"><img src="/kobis/web/comm/mobile/images/comm/logo_gnb.png" alt="홈으로"></a>
+            
+            <div class="user"><strong class="nonmember">비회원입니다.</strong></div>
+            <a href="/kobis/mobile/comm/user/openLogin.do" class="btn_login">로그인</a>
+                        
+        </div>
+        <ul class="list_menu">
+            <li class="item_menu"><a href="/kobis/mobile/comm/ntfy/findCustomerNotifyList.do">공지사항</a></li>
+            <li class="item_menu"><a href="javascript:;">박스오피스</a>
+                <ul class="depth2">
+                    <li><a href="/kobis/mobile/main/findDailyBoxOfficeList.do">- 일별 박스오피스</a></li>
+                    <li><a href="/kobis/mobile/main/findWeeklyBoxOfficeList.do?sWeekGb=0">- 주간 박스오피스</a></li>
+                    <li><a href="/kobis/mobile/main/findWeeklyBoxOfficeList.do?sWeekGb=1">- 주말 박스오피스</a></li>
+                </ul>
+            </li>       
+            <li class="item_menu"><a href="/kobis/mobile/main/findRealTicketList.do">실시간 예매율</a></li>
+            <li class="item_menu">
+                <a href="javascript:;">좌석 점유율</a>
+                <ul class="depth2">
+                    <li><a href="/kobis/mobile/main/findDailySeatTicketList.do">- 일별 좌석점유율</a></li>
+                    <li><a href="/kobis/mobile/main/findWeeklySeatTicketList.do?weekGb=0">- 주간 좌석점유율</a></li>
+                    <li><a href="/kobis/mobile/main/findWeeklySeatTicketList.do?weekGb=1">- 주말 좌석점유율</a></li>
+                </ul>
+            </li>       
+            <li class="item_menu"><a href="javascript:;">영화정보 검색</a>
+                <ul class="depth2">
+                    <li><a href="/kobis/mobile/mast/mvie/searchMovieList.do">- 영화</a></li>
+                    <li><a href="/kobis/mobile/mast/peop/searchPeopleList.do">- 영화인</a></li>
+                    <li><a href="/kobis/mobile/mast/comp/searchCompanyList.do">- 영화사</a></li>
+                </ul>
+            </li>
+            <li class="item_menu"><a href="javascript:;">온라인상영관</a>
+                <ul class="depth2">
+                	<li><a href="/kobis/mobile/mast/online/onlineDailyBoxRank.do">- 일간 이용순위</a></li>
+                	<li><a href="/kobis/mobile/mast/online/onlineWeeklyBoxRank.do">- 주간 이용순위</a></li>
+                	<li><a href="/kobis/mobile/mast/online/onlineMovieList.do">- 전체작품 정보</a></li>
+                	<li><a href="/kobis/mobile/mast/online/onlineNewMovieList.do">- 최신상영작 정보</a></li>
+                	<li><a href="/kobis/mobile/mast/online/onlineDailyStat.do">- 일간 산업통계</a></li>
+                	<li><a href="/kobis/mobile/mast/online/onlineWeeklyStat.do">- 주간 산업통계</a></li>
+                	<li><a href="/kobis/mobile/mast/online/onlineCompList.do">- 온라인상영관</a></li>                	                	                   
+                </ul>
+            </li>
+            <li class="item_menu">
+            	<!--로그인 여부 확인-->
+            	
+				<a href="/kobis/mobile/comm/user/openLogin.do">회원통계</a>
+				                
+            </li>       
+        </ul>
+	</div>
+</div>
+<!-- //side -->
+
+<!-- CSRF -->
+<input type="hidden" name="CSRFToken" value="z9jcLfbAA1W3ItF5xAjfW54j1E2s1kANeAe6SEDLS3Y" />
+
+
+<script type="text/javascript">
+
+$(document).ready(function(e) {	
+	//스크롤 우측으로 이동 
+	$(".scring").scrollLeft(($(".list_scr").width()-$(".scring").width()));
+});
+
+</script>
+
+<div id="contents">
+    <h3 class="title tit_dot">님아, 그 강을 건너지 마오&nbsp;(My Love, Don't Cross That River)</h3>
+	<div class="wrap_cont details">
+        <div class="info_basic">        	        		
+       		
+				
+					<a href="/common/mast/movie/2014/11/90ef48778a6445a5b9b5bf566ee81d3d.jpg" target="_blank" >
+					<div class="thumb">
+	               		<img src="/common/mast/movie/2014/11/thumb_x192/thn_90ef48778a6445a5b9b5bf566ee81d3d.jpg" alt="님아_메인포스터.jpg" onerror="fn_replaceBlankImg(this, '192');" />						
+					</div>
+					</a>
+					
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+			        	
+            <div class="desc">
+            	<dl class="dl_info">
+                	<dt>개봉일자</dt>
+                    <dd>
+                    	
+                    		
+		                    	
+		                    		
+		                    		
+		                    			2014-11-27
+		                    		
+		                    	
+		                    
+		                    
+						
+                    </dd>
+                	<dt>제작국가</dt>
+                    <dd>
+                    	
+                    		
+		                    	
+		                     	 	한국
+		                     	
+	                     	
+	                     	
+	                     
+                    </dd>
+                	<dt>장르</dt>
+                    <dd>
+                    	
+                    		
+		                    	
+									다큐멘터리
+								
+	                     	
+	                     	
+	                     
+                    </dd>
+                	<dt>상영타입</dt>
+                    <dd>
+                    	
+                    		
+		                    	
+                    				필름,
+                    			
+                    				디지털,
+                    			
+                    				디지털 가치봄
+                    			
+	                     	
+	                     	
+	                                        	
+                    </dd>
+                	<dt>상영시간</dt>
+                    <dd>85분 0초</dd>
+                	<dt>관람등급</dt>
+                    <dd>전체관람가</dd>
+                </dl>
+            </div>
+        </div>        
+        
+        <div class="info">
+        	<strong class="tit_line">감독/출연</strong>
+            <dl class="dl_info">
+            	<dt>감독</dt>
+                <dd>
+                		
+                	                   				                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   			                   		
+		                   		
+			                   	<a href="/kobis/mobile/mast/peop/searchPeopleDtl.do?peopleCd=20179941">진모영</a>
+			                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+		                   	
+	                   	
+                   	
+                   	                   	
+                </dd>
+                <dt>출연</dt>
+                <dd>
+                	
+	                					
+							
+								<a href="/kobis/mobile/mast/peop/searchPeopleDtl.do?peopleCd=20198488">조병만,</a>
+							
+								<a href="/kobis/mobile/mast/peop/searchPeopleDtl.do?peopleCd=20198489">강계열</a>
+							
+						
+						
+					
+                </dd>
+            </dl>
+        </div>
+        
+              
+       	
+			
+			
+			
+			
+			
+										
+			
+			
+			
+										
+			
+			
+			
+										
+			
+			
+			
+										
+			
+			
+			
+										
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		
+         
+        <div class="info">
+        	<strong class="tit_line">스틸컷</strong>
+        	
+        		
+					<ul class="list_cut">
+						
+							
+							
+							
+							
+							
+							
+								
+				                <li><a href="/common/mast/movie/2014/11/335b3f326d3544f3838cbb1033575277.jpg" target="_blank" ><span class="thumb"><img src="/common/mast/movie/2014/11/thumb_x132/thn_335b3f326d3544f3838cbb1033575277.jpg" alt="press_still_01.jpg" onerror="fn_replaceBlankImg(this, '132');" /></span></a></li>						
+							
+							
+							
+								
+				                <li><a href="/common/mast/movie/2014/11/b2eccf45bf574c6487c41643f6f0ee9f.jpg" target="_blank" ><span class="thumb"><img src="/common/mast/movie/2014/11/thumb_x132/thn_b2eccf45bf574c6487c41643f6f0ee9f.jpg" alt="press_still_02.jpg" onerror="fn_replaceBlankImg(this, '132');" /></span></a></li>						
+							
+							
+							
+								
+				                <li><a href="/common/mast/movie/2014/11/be526c8d9db24f938af72a827c1f5361.jpg" target="_blank" ><span class="thumb"><img src="/common/mast/movie/2014/11/thumb_x132/thn_be526c8d9db24f938af72a827c1f5361.jpg" alt="press_still_03.jpg" onerror="fn_replaceBlankImg(this, '132');" /></span></a></li>						
+							
+							
+							
+								
+				                <li><a href="/common/mast/movie/2014/11/54192ebcc78d40759f3e9a29724dd63f.jpg" target="_blank" ><span class="thumb"><img src="/common/mast/movie/2014/11/thumb_x132/thn_54192ebcc78d40759f3e9a29724dd63f.jpg" alt="press_still_04.jpg" onerror="fn_replaceBlankImg(this, '132');" /></span></a></li>						
+							
+							
+							
+								
+				                <li><a href="/common/mast/movie/2014/11/a4f485cf87e040428c93bf4f8a522d9a.jpg" target="_blank" ><span class="thumb"><img src="/common/mast/movie/2014/11/thumb_x132/thn_a4f485cf87e040428c93bf4f8a522d9a.jpg" alt="press_still_05.jpg" onerror="fn_replaceBlankImg(this, '132');" /></span></a></li>						
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						
+		            </ul>
+				
+        		        	
+        	        	
+        </div>
+		
+		<div class="info">
+        	<strong class="tit_line">시놉시스</strong>	
+			<dl class="dl_info">
+				
+	            	<dd>우리는 76년째 연인입니다.<br><br>조그만 강이 흐르는 강원도 횡성의 아담한 마을<br><br>89세 소녀감성 강계열 할머니, 98세 로맨티스트 조병만 할아버지<br>이들은 어딜 가든 고운 빛깔의 커플 한복을 입고 두 손을 꼭 잡고 걷는 노부부이다.<br><br>봄에는 꽃을 꺾어 서로의 머리에 꽂아주고, 여름엔 개울가에서 물장구를 치고,<br>가을엔 낙엽을 던지며 장난을 치고, 겨울에는 눈싸움을 하는 매일이 신혼 같은 백발의 노부부.<br><br>장성한 자녀들은 모두 도시로 떠나고 서로를 의지하며 살던 어느 날,<br>할아버지가 귀여워하던 강아지 ‘꼬마’가 갑자기 세상을 떠난다.<br>꼬마를 묻고 함께 집으로 돌아온 이후부터 할아버지의 기력은 점점 약해져 가는데…<br><br>비가 내리는 마당, 점점 더 잦아지는 할아버지의 기침소리를 듣던 할머니는 친구를 잃고 홀로 남은 강아지를 바라보며 머지 않아 다가올 또 다른 이별을 준비한다.</dd>
+	            	
+	            				
+			</dl>
+		</div>		
+
+		<div class="info">
+       	<strong class="tit_line">영화사</strong>
+           <dl class="dl_info">
+           
+           		
+           			
+		           		
+		           			<dt>제작사</dt>
+		           			
+		           			<dd>
+		           		           		
+		           		
+		           		<a href="/kobis/mobile/mast/comp/searchCompanyDtl.do?companyCd=20143308">아거스필름 </a>            		
+		           		
+		           		
+						
+						</dd>
+						
+           			
+		           		
+		           			<dt>배급사</dt>
+		           			
+		           			<dd>
+		           		           		
+		           		
+		           		<a href="/kobis/mobile/mast/comp/searchCompanyDtl.do?companyCd=20102327">CGV아트하우스 (CGV ARTHOUSE)</a>            		
+		           		
+		           		
+							<br/>
+						
+						
+           			
+		           		           		
+		           		
+		           		<a href="/kobis/mobile/mast/comp/searchCompanyDtl.do?companyCd=20114894">(주)대명문화공장 (Daemyung Culture Factory Co., Ltd.)</a>            		
+		           		
+		           		
+						
+						</dd>
+						
+           			
+		           		
+		           			<dt>제공</dt>
+		           			
+		           			<dd>
+		           		           		
+		           		
+		           		<a href="/kobis/mobile/mast/comp/searchCompanyDtl.do?companyCd=20114894">(주)대명문화공장 (Daemyung Culture Factory Co., Ltd.)</a>            		
+		           		
+		           		
+						
+						</dd>
+						
+           			
+		           		
+		           			<dt>공동제공</dt>
+		           			
+		           			<dd>
+		           		           		
+		           		
+		           		<a href="/kobis/mobile/mast/comp/searchCompanyDtl.do?companyCd=20102327">CGV아트하우스 (CGV ARTHOUSE)</a>            		
+		           		
+		           		
+						
+						</dd>
+						
+           			
+		           		
+		           			<dt>해외세일즈사</dt>
+		           			
+		           			<dd>
+		           		           		
+		           		
+		           		<a href="/kobis/mobile/mast/comp/searchCompanyDtl.do?companyCd=20136955">캣앤독스 (CAT&amp;Docs)</a>            		
+		           		
+		           		
+						
+           			
+           		
+           		
+           	
+           </dl>
+       	</div>
+       	
+        <div class="wrap_more">			
+        	<button type="button" class="list" onClick="history.back();">목록<span class="ico_comm ico_back"></button></button>
+        	
+		</div>
+    </div>
+</div>
+
+
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="/kobis/web/comm/commjs/gtag.js?id=UA-127072686-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-127072686-1');
+</script>
+		              	
+
+<!-- AceCounter Mobile WebSite Gathering Script V.7.5.20170208 -->
+<script language='javascript'>
+	var _AceGID=(function(){var Inf=['kobis.or.kr','m.kobis.or.kr,www.kobis.or.kr,kobis.or.kr','AZ3A54623','AM','0','NaPm,Ncisy','ALL','0']; var _CI=(!_AceGID)?[]:_AceGID.val;var _N=0;if(_CI.join('.').indexOf(Inf[3])<0){ _CI.push(Inf);  _N=_CI.length; } return {o: _N,val:_CI}; })();
+	var _AceCounter=(function(){var G=_AceGID;var _sc=document.createElement('script');var _sm=document.getElementsByTagName('script')[0];if(G.o!=0){var _A=G.val[G.o-1];var _G=(_A[0]).substr(0,_A[0].indexOf('.'));var _C=(_A[7]!='0')?(_A[2]):_A[3];var _U=(_A[5]).replace(/\,/g,'_');_sc.src=(location.protocol.indexOf('http')==0?location.protocol:'http:')+'//cr.acecounter.com/Mobile/AceCounter_'+_C+'.js?gc='+_A[2]+'&py='+_A[1]+'&up='+_U+'&rd='+(new Date().getTime());_sm.parentNode.insertBefore(_sc,_sm);return _sc.src;}})();
+</script>
+<noscript><img src='//gmb.acecounter.com/mwg/?mid=AZ3A54623&tp=noscript&ce=0&' border='0' width='0' height='0' alt=''></noscript>
+<!-- AceCounter Mobile Gathering Script End -->
+
+<footer>
+	<ul class="list_link">
+    	
+           	
+				<li><a href="/kobis/mobile/comm/user/openLogin.do">로그인</a></li>
+            
+            
+        
+    	<li><a href="/kobis/business/main/main.do" target="_blank">PC버전</a></li>    	
+    </ul>
+    <a href="javascript:$('html, body').stop().animate({scrollTop:0});" class="btn_top">TOP</a>
+    <div class="info">
+    	<p class="address">(48058)부산광역시 해운대구 센텀중앙로 55(우동) 경남정보대 센텀산학캠퍼스 13층, 14층</p>
+        <span class="tel">TEL: 02-6261-6573</span>
+        <span class="fax">FAX: 02-2264-6726</span>
+        <span class="email">E-mail: kobis@kofic.or.kr</span>
+        <p class="copyright">Copyright (c) 2011. Korean Film Council. All rights reserved.</p>
+    </div>
+</footer>
+</div>
+</body>
+</html>

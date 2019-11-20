@@ -1,0 +1,17 @@
+{
+  "name": "book_backend",
+  "version": "1.0.0",
+  "description": "for book",
+  "main": "app.js",
+  "scripts": {
+    "test": "supervisor app.js"
+  },
+  "author": "yutaehun",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "mysql": "^2.17.1"
+  }
+}

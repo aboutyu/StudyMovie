@@ -1,0 +1,148 @@
+
+
+<!-- 참고 : https://getbootstrap.com/docs/4.3/components/forms/ -->
+<form name="movie_add" action="/movie/add/" method="POST" onsubmit="return save_click();">
+  <table class="table">
+    
+    <tbody>
+      <tr>
+        <th scope="row">sequence</th>
+        <td><input class="form-control" type="text" placeholder="sequence" name="sequence" ></td>
+      </tr>
+
+      <tr>
+        <th scope="row">ranking</th>
+        <td><input class="form-control" type="text" placeholder="ranking" name="ranking" ></td>
+      </tr>
+
+      <tr>
+        <th scope="row">title</th>
+        <td><input class="form-control" type="text" placeholder="title" name="title" ></td>
+      </tr>
+
+      <tr>
+        <th scope="row">opendate</th>
+        <td><input class="form-control" type="text" placeholder="opendate" name="opendate" ></td>
+      </tr>
+
+      <tr>
+        <th scope="row">totsales</th>
+        <td><input class="form-control" type="text" placeholder="totsales" name="totsales" ></td>
+      </tr>
+
+      <tr>
+        <th scope="row">totaudit</th>
+        <td><input class="form-control" type="text" placeholder="totaudit" name="totaudit" ></td>
+      </tr>
+
+      <tr>
+        <th scope="row">totScreen</th>
+        <td><input class="form-control" type="text" placeholder="totScreen" name="totScreen" ></td>
+      </tr>
+
+      <tr>
+        <th scope="row">thumbnail_image</th>
+        <td><input class="form-control" type="text" placeholder="thumbnail_image" name="thumbnail_image" ></td>
+      </tr>
+
+      <tr>
+        <th scope="row">country</th>
+        <td><input class="form-control" type="text" placeholder="country" name="country" ></td>
+      </tr>
+
+      <tr>
+        <th scope="row">genre</th>
+        <td><input class="form-control" type="text" placeholder="genre" name="genre" ></td>
+      </tr>
+
+      <tr>
+        <th scope="row">running</th>
+        <td><input class="form-control" type="text" placeholder="running" name="running" ></td>
+      </tr>
+
+      <tr>
+        <th scope="row">rating</th>
+        <td><input class="form-control" type="text" placeholder="rating" name="rating" ></td>
+      </tr>
+
+      <tr>
+        <th scope="row">director</th>
+        <td><input class="form-control" type="text" placeholder="director" name="director" ></td>
+      </tr>
+      <tr>
+        <td colspan="2" scope="row">
+          <!-- 참고: https://getbootstrap.com/docs/4.3/components/buttons/ -->
+          <button type="submit" class="btn btn-success">저장하기</button>
+          <button type="button" class="btn btn-info" onclick="list_click();">리스트</button>
+        </td>
+      </tr>
+    </tbody>
+    
+  </table>
+</form>
+
+<script language="javascript">
+// 수정하기 버튼 클릭
+function save_click() {
+  var doc = document.movie_add;
+  if (!doc.sequence.value) {
+    alert('sequence를 입력해주세요.');
+    return false;
+  }
+  if (!doc.ranking.value) {
+    alert('ranking을 입력해주세요.');
+    return false;
+  }
+  if (!doc.title.value) {
+    alert('title을 입력해주세요.');
+    return false;
+  }
+  if (!doc.opendate.value) {
+    alert('opendate를 입력해주세요.');
+    return false;
+  }
+  if (!doc.totsales.value) {
+    alert('totsales을 입력해주세요.');
+    return false;
+  }
+  if (!doc.totaudit.value) {
+    alert('totaudit을 입력해주세요.');
+    return false;
+  }
+  if (!doc.totScreen.value) {
+    alert('totScreen을 입력해주세요.');
+    return false;
+  }
+  if (!doc.thumbnail_image.value) {
+    alert('thumbnail_image을 입력해주세요.');
+    return false;
+  }
+  if (!doc.country.value) {
+    alert('country를 입력해주세요.');
+    return false;
+  }
+  if (!doc.genre.value) {
+    alert('genre를 입력해주세요.');
+    return false;
+  }
+  if (!doc.running.value) {
+    alert('running을 입력해주세요.');
+    return false;
+  }
+  if (!doc.rating.value) {
+    alert('rating을 입력해주세요.');
+    return false;
+  }
+  if (!doc.director.value) {
+    alert('director를 입력해주세요.');
+    return false;
+  }
+
+  return true;
+}
+
+// 리스트화면으로 이동 
+function list_click() {
+  document.location.href="/movie/list";
+}
+</script>
