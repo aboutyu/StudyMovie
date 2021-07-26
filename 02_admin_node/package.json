@@ -2,9 +2,9 @@
   "name": "book_backend",
   "version": "1.0.0",
   "description": "for book",
-  "main": "app.js",
+  "main": "web.js",
   "scripts": {
-    "test": "supervisor app.js"
+    "test": "supervisor web.js"
   },
   "author": "yutaehun",
   "license": "ISC",
