@@ -1,0 +1,15 @@
+server:
+  port: 3000
+
+db:
+  type: 'mysql'
+  port: 3306
+  database: 'BOARD'
+  host: 'localhost'
+  username: 'aboutyu'
+  password: 'qweasd123'
+  syncronize: false
+
+jwt:
+  expired: 3000
+  secret: 'qweasd123'

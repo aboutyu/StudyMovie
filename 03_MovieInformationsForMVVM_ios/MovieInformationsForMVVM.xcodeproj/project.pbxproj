@@ -16,6 +16,7 @@
 		7DCB52C927B3C7F800ECFB67 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCB52C827B3C7F800ECFB67 /* ListViewModel.swift */; };
 		7DCB52CC27B3C84900ECFB67 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCB52CB27B3C84900ECFB67 /* MovieModel.swift */; };
 		7DCB52CE27B3C86600ECFB67 /* ResultType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCB52CD27B3C86600ECFB67 /* ResultType.swift */; };
+		7DFACA6027BB87E8006DDC36 /* MovieStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFACA5F27BB87E8006DDC36 /* MovieStore.swift */; };
 		F317152215F5C5688D1A5BD5 /* Pods_MovieInformationsForMVVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B31BB245A518330FA055C1A /* Pods_MovieInformationsForMVVM.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +35,7 @@
 		7DCB52C827B3C7F800ECFB67 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		7DCB52CB27B3C84900ECFB67 /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
 		7DCB52CD27B3C86600ECFB67 /* ResultType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultType.swift; sourceTree = "<group>"; };
+		7DFACA5F27BB87E8006DDC36 /* MovieStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 		7DCB52C727B3C7A200ECFB67 /* Store */ = {
 			isa = PBXGroup;
 			children = (
+				7DFACA5F27BB87E8006DDC36 /* MovieStore.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 				7DCB52C927B3C7F800ECFB67 /* ListViewModel.swift in Sources */,
 				7DCB52CE27B3C86600ECFB67 /* ResultType.swift in Sources */,
 				7DCB52B327B3C0B800ECFB67 /* SceneDelegate.swift in Sources */,
+				7DFACA6027BB87E8006DDC36 /* MovieStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
